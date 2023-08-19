@@ -15,6 +15,10 @@ class FizzBuzz {
         this.n = n;
     }
 
+//    acquire() -это метод Semaphore, который запрашивает доступ или захватывает разрешение экземпляра семафора.
+//    Это метод блокирует вызывающий поток до тех пор, пока семафор не будет иметь доступное разрешение.
+//    Если доступных разрешений нет, то вызывающий поток блокируется до тех пор,
+//    пока другой поток не освободит разрешение.
     public void fizz() throws InterruptedException {
         for (int i = 3; i <= n; i += 3) {
             if (i % 5 != 0) {
@@ -24,9 +28,10 @@ class FizzBuzz {
             }
         }
     }
-
+//release() - это метод Semaphore, который освобождает разрешение экземпляра семафора.
+// Это освобождает доступ к ресурсу для других потоков, которые могут теперь взять это освобожденное разрешение.
     public void buzz() throws InterruptedException {
-        for (int i = 5; i <= n; i += 5) {
+        for (int i = 1; i <= n; i += 5) {
             if (i % 3 != 0) {
                 buzzSemaphore.acquire();
                 System.out.print("buzz, ");
@@ -36,7 +41,7 @@ class FizzBuzz {
     }
 
     public void fizzbuzz() throws InterruptedException {
-        for (int i = 15; i <= n; i += 15) {
+        for (int i = 1; i <= n; i += 15) {
             fizzBuzzSemaphore.acquire();
             System.out.print("fizzbuzz, ");
             responseSemaphore.release();

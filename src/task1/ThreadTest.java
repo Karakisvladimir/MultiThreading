@@ -9,7 +9,6 @@ public class ThreadTest {
                     Thread.sleep(1000);
                     long currentTime = System.currentTimeMillis();
                     System.out.println("Time passed: " + (currentTime - lastLoopTime) + " milliseconds");
-                    lastLoopTime = currentTime;
                 } catch (InterruptedException e) {
                     break;
                 }
